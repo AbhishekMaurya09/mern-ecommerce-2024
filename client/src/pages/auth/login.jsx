@@ -4,7 +4,10 @@ import { loginFormControls } from "@/config";
 import { loginUser } from "@/store/auth-slice";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+
+
 
 const initialState = {
   email: "",
@@ -18,6 +21,8 @@ function AuthLogin() {
 
   function onSubmit(event) {
     event.preventDefault();
+
+
 
     dispatch(loginUser(formData)).then((data) => {
       if (data?.payload?.success) {
